@@ -6,7 +6,7 @@ const loadPhones = async () =>{
 }
 
 const displayPhones = phones =>{
-    console.log(phones)
+    console.log(phone)
 }
 
 loadPhones()
