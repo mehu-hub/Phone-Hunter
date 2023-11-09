@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Phones Hunter</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <style>
+        .single-phone{ 
+            margin-top: 20px;
+            border-radius: 5px;
+            padding: 20px;
+            border: 2px solid rebeccapurple;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="text-center text-4xl mt-5 font-bold text-gray-600">Welcome to My Phone Hunter</h1>
+    <hr class="mt-5 w-2/4 container mx-auto">
+    <div class="container mx-auto text-center mt-10">
+        <input id="search-field" class="md:w-1/4 rounded outline-none" type="search" placeholder="search your phone">
+        <button id="btn-search" class="bg-blue-600 text-white rounded py-2 px-5">Search</button>
+    </div>
+    <!-- Display Phone -->
+    <div id="phone-container" class="container mx-auto grid md:grid-cols-3 grid-cols-1 gap-5"> 
+    </div>
+
+    <script src="JS/phone.js"></script>
+</body>
+
+</html>
