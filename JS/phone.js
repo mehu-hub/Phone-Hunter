@@ -41,8 +41,8 @@ const displayPhones = (phones, limitdata) => {
         <img class="w-2/4" src="${phone.image}">
         <p class="font-bold  text-2xl text-gray-600">${phone.phone_name}</p>
         <p class="font-semibold text-center text-sm">${phone.slug}</p>
-        <button onclick="loadPhoneDetails('${phone.slug}')" class="bg-blue-600 text-white rounded py-2 px-5 mt-5">Details</button>
-     `  
+        <button onclick="loadPhoneDetails('${phone.slug}'), phoneDetailModal.showModal()" class="bg-blue-600 text-white rounded py-2 px-5 mt-5">Details</button> 
+     `
         phonesContainer.appendChild(phoneDiv);
         // stop loader
         toggleLoader(false);
@@ -92,11 +92,33 @@ document.getElementById('btn-show-all').addEventListener('click', function () {
 
 
 
-const loadPhoneDetails = async id =>{
+const loadPhoneDetails = async id => {
     const url = `https://openapi.programming-hero.com/api/phone/${id}`;
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data.data)
+    displayPhoneDetails(data.data)
 }
 
-// loadPhones()
+const displayPhoneDetails = phone => {
+    console.log(phone)
+    const modalTitle = document.getElementById('modal_title');
+    modalTitle.innerText = phone.name;
+    //--------------------------------------------------------
+    const modalDescription = document.getElementById('modal_description');
+    modalDescription.innerText = phone.slug;
+    //--------------------------------------------------------
+    const modalImg = document.getElementById('modal_img');
+    modalImg.src = phone.image;
+    //--------------------------------------------------------
+    const phoneDetails = document.getElementById('phone_details');
+    phoneDetails.innerHTML = `
+        <li>1. ${phone.mainFeatures.chipSet}</li>
+        <li>2. ${phone.mainFeatures.displaySize}</li>
+        <li>3. ${phone.mainFeatures.memory}</li>
+        <li>4. ${phone.mainFeatures.storage}</li>
+    `
+    const releaseDate = document.getElementById('release_date');
+    releaseDate.innerText = phone.releaseDate ? phone.releaseDate : 'No Release Date found';
+}
+
+loadPhones('apple')
