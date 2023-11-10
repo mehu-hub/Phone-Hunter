@@ -24,6 +24,13 @@
         .display-none {
             display: none;
         }
+        .show-all div{
+            display: none;
+        }
+        .btn-show-all{
+            display: flex;
+        }
+        
     </style>
 </head>
 
@@ -42,7 +49,12 @@
     </div>
     <div id="loader" class="text-center mt-10 display-none">
         <span class="loading loading-dots loading-lg text-blue-800"></span>
-    </div> 
+    </div>
+
+    <div id="show-all" class="flex show-all justify-center items-center h-[200px] ">
+        <div id="btn-show-all" class="btn-show-all bg-blue-600 p-2 rounded text-white px-5">Show All</div>
+    </div>
+
 
     <script src="JS/phone.js"></script>
 </body>
