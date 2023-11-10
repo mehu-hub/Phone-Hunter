@@ -12,13 +12,13 @@ const displayPhones = phones => {
 
     //display no phone found
     const noPhone = document.getElementById('no-found-message');
-    if(phones.length === 0){
+    if (phones.length === 0) {
         noPhone.classList.remove('display-none')
     }
-    else{
+    else {
         noPhone.classList.add('display-none')
     }
-
+    toggleLoader(false);
     // display all phone
     phones.forEach(phone => {
         const phoneDiv = document.createElement('div');
@@ -29,14 +29,28 @@ const displayPhones = phones => {
         <p class="font-semibold text-center text-sm">${phone.slug}</p>
      `
         phonesContainer.appendChild(phoneDiv);
-    })
+        // stop loader
+        toggleLoader(false);
+    });
 }
 
 document.getElementById('btn-search').addEventListener('click', function () {
+    toggleLoader(true);
     const searchField = document.getElementById('search-field');
     const serachText = searchField.value;
     loadPhones(serachText)
 
 })
+
+
+const toggleLoader = isLoading => {
+    const loaderSpiner = document.getElementById('loader');
+    if (isLoading === true) {
+        loaderSpiner.classList.remove('display-none')
+    }
+    else {
+        loaderSpiner.classList.add('display-none')
+    }
+}
 
 // loadPhones()

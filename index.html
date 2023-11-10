@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Phones Hunter</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet" type="text/css" />
+
     <style>
         .single-phone {
             margin-top: 20px;
@@ -18,7 +20,8 @@
             justify-content: center;
 
         }
-        .display-none{
+
+        .display-none {
             display: none;
         }
     </style>
@@ -37,6 +40,9 @@
     <div id="no-found-message" class="text-red-400 text-center text-2xl mt-10 display-none">
         <p>No result found !</p>
     </div>
+    <div id="loader" class="text-center mt-10 display-none">
+        <span class="loading loading-dots loading-lg text-blue-800"></span>
+    </div> 
 
     <script src="JS/phone.js"></script>
 </body>
